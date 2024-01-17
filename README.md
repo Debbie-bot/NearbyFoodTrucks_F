@@ -8,3 +8,5 @@ php cron.php
 ```
 localhost/index.html
 ```
+## 效果
+![图片名称](pic.png)
