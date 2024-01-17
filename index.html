@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nearby Shops</title>
+</head>
+<body>
+
+<div id="app">
+  <h1>Nearby Shops</h1>
+  
+  <p>Latitude: {{ latitude }}</p>
+  <p>Longitude: {{ longitude }}</p>
+
+  <div v-if="loading">Loading...</div>
+
+  <div v-if="!loading && shops.length === 0">
+    No nearby shops found.
+  </div>
+
+  <div v-if="shops.length > 0">
+    <h2>Nearby Shops:</h2>
+    <ul>
+      <li v-for="shop in shops" :key="shop.id">
+        {{ shop.name }} - Distance: {{ shop.distance }} km - Address: {{ shop.address }}
+      </li>
+    </ul>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+<script src="app.js"></script>
+</body>
+</html>
