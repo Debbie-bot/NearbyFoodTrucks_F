@@ -11,8 +11,8 @@ new Vue({
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
           position => {
-            this.latitude = 37.76008693; //position.coords.latitude;
-            this.longitude = -122.4188065; //position.coords.longitude;
+            this.latitude = position.coords.latitude; // 37.76008693;
+            this.longitude = position.coords.longitude; // -122.4188065;
             this.fetchNearbyShops();
           },
           error => {
