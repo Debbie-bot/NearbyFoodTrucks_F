@@ -19,7 +19,8 @@ if (file_exists($file)) {
                 'name' => $truck['Applicant'],
                 'latitude' => $truck['Latitude'],
                 'longitude' => $truck['Longitude'],
-                'address' => $truck['LocationDescription'],
+                'address' => $truck['LocationDescription'] ?: $truck['Address'],
+                'foodItems' => $truck['FoodItems'],
             ];
         }
     }

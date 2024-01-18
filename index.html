@@ -3,27 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nearby Shops</title>
+  <title>Nearby Food Trucks</title>
 </head>
 <body>
 
 <div id="app">
-  <h1>Nearby Shops</h1>
+  <h1>Nearby Food Trucks</h1>
   
   <p>Latitude: {{ latitude }}</p>
   <p>Longitude: {{ longitude }}</p>
 
   <div v-if="loading">Loading...</div>
 
-  <div v-if="!loading && shops.length === 0">
-    No nearby shops found.
+  <div v-if="!loading && foodTrucks.length === 0">
+    No nearby food trucks found.
   </div>
 
-  <div v-if="shops.length > 0">
-    <h2>Nearby Shops:</h2>
+  <div v-if="foodTrucks.length > 0">
+    <h2>Nearby Food Trucks:</h2>
+    <input type="text" v-model="filterKeyword" placeholder="input keyword filter"> <button @click="resetInput">Reset</button>
     <ul>
-      <li v-for="shop in shops" :key="shop.id">
-        {{ shop.name }} - Distance: {{ shop.distance }} km - Address: {{ shop.address }}
+      <li v-for="truck in filteredFoodTrucks" :key="truck.id">
+        {{ truck.name }} - Distance: {{ truck.distance }} km - Address: {{ truck.address }} - FoodItems: {{ truck.foodItems }}
       </li>
     </ul>
   </div>
